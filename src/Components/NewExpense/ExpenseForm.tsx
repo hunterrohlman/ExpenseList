@@ -73,7 +73,7 @@ const ExpenseForm: React.FC<any> = (props) => {
 
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
 
@@ -82,7 +82,6 @@ const ExpenseForm: React.FC<any> = (props) => {
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
-    
   };
 
   return (
@@ -118,9 +117,10 @@ const ExpenseForm: React.FC<any> = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
-        <button type="submit" onClick={submitHandler}>
-          Add Expense
+        <button type="button" onClick={props.onCancel}>
+          Cancel
         </button>
+        <button type="submit" onClick={submitHandler}>Add Expense</button>
       </div>
     </form>
   );
